@@ -1,0 +1,9 @@
+# Core
+opencv-python>=4.8
+mediapipe>=0.10
+deepface>=0.0.90
+python-osc>=1.8
+pyyaml>=6.0
+
+# RealSense (only needed if using Intel RealSense camera)
+# pyrealsense2>=2.54

@@ -1,0 +1,25 @@
+camera:
+  type: webcam          # options: webcam | realsense
+  device_index: 0       # webcam only
+  width: 1920
+  height: 1080
+  fps: 30               # realsense only
+
+osc:
+  host: 127.0.0.1
+  port: 7000
+
+detection:
+  proximity:
+    close_threshold: 0.15       # face area as fraction of total frame area
+    far_threshold: 0.04
+  expression:
+    analyze_every_n_frames: 3   # skip frames for performance (DeepFace is heavy)
+  peekaboo:
+    face_lost_frames: 3         # consecutive frames face must be gone to trigger
+  state:
+    debounce_frames: 5          # consecutive frames needed to confirm a state change
+
+debug:
+  show_preview: true            # display OpenCV preview window
+  print_detections: true        # print raw detections to console
