@@ -6,17 +6,19 @@ camera:
   fps: 30               # realsense only
 
 osc:
-  host: 127.0.0.1
+  host: 127.0.0.1       # Unreal Engine machine IP (use 127.0.0.1 if same machine)
   port: 7000
 
 detection:
   proximity:
-    close_threshold: 0.15       # face area as fraction of total frame area
+    close_threshold: 0.15   # face area as fraction of total frame area
     far_threshold: 0.04
   expression:
     analyze_every_n_frames: 3   # skip frames for performance (DeepFace is heavy)
   peekaboo:
+    overlap_threshold: 0.3      # kept for API compat, unused in current strategy
     face_lost_frames: 3         # consecutive frames face must be gone to trigger
+    hand_center_margin: 300     # max distance (px) between hand center and last face center
   state:
     debounce_frames: 5          # consecutive frames needed to confirm a state change
 

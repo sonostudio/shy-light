@@ -26,7 +26,9 @@ class PeekabooDetector(Detector):
 
     def __init__(
         self,
+        overlap_threshold: float = 0.3,  # kept for API compat, unused
         face_lost_frames: int = 3,
+        hand_center_margin: int = 300,   # kept for API compat, unused
         debug: bool = False,
     ):
         self.face_lost_frames     = face_lost_frames
