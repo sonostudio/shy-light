@@ -19,8 +19,12 @@ detection:
     overlap_threshold: 0.3      # kept for API compat, unused in current strategy
     face_lost_frames: 3         # consecutive frames face must be gone to trigger
     hand_center_margin: 300     # max distance (px) between hand center and last face center
+  hands:
+    min_detection_confidence: 0.5
+
   state:
     debounce_frames: 5          # consecutive frames needed to confirm a state change
+    idle_timeout_seconds: 5.0   # reset to defaults after N seconds with no face
 
 debug:
   show_preview: true            # display OpenCV preview window

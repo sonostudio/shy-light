@@ -89,6 +89,25 @@ Recommended to lerp/smooth this value on the Unreal side to avoid jitter.
 | Peekaboo | `/person/gesture` | string | `"peekaboo"`|
 | None     | `/person/gesture` | string | `"none"`    |
 
+### Face coordinates (sent every frame)
+
+| Address         | Type  | Value                                    |
+|-----------------|-------|------------------------------------------|
+| `/person/face/x` | float | `0.0`–`1.0` normalized, `-1.0` = no face  |
+| `/person/face/y` | float | `0.0`–`1.0` normalized, `-1.0` = no face  |
+
+### Hand coordinates (sent every frame)
+
+| Address                  | Type  | Value                                         |
+|--------------------------|-------|-----------------------------------------------|
+| `/person/hand/right/x`   | float | `0.0`–`1.0` normalized, `-1.0` = not detected |
+| `/person/hand/right/y`   | float | `0.0`–`1.0` normalized, `-1.0` = not detected |
+| `/person/hand/left/x`    | float | `0.0`–`1.0` normalized, `-1.0` = not detected |
+| `/person/hand/left/y`    | float | `0.0`–`1.0` normalized, `-1.0` = not detected |
+
+Hand tracking operates independently of face detection. `-1.0` signals
+"not present" to Unreal so it can be distinguished from a hand at the edge of frame.
+
 > **Note:** Expression is automatically set to `"none"` while peekaboo is active,
 > since the face is covered and any reading would be noise.
 > Proximity and proximity/value continue to be sent during peekaboo —
