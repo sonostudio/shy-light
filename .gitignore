@@ -209,3 +209,6 @@ __marimo__/
 # Assets
 models/
 touchdesigner/
+
+# MacOS
+.DS_Store
