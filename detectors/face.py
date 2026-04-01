@@ -42,7 +42,7 @@ class FaceCoordinateDetector(Detector):
 
     def detect(self, frame: np.ndarray) -> dict:
         h, w = frame.shape[:2]
-        rgb = frame[:, :, ::-1]
+        rgb = frame[:, :, ::-1].copy()
         mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb)
         result = self._detector.detect(mp_image)
 

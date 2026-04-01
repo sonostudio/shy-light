@@ -2,19 +2,15 @@
 name = "shy-light"
 version = "0.1.0"
 description = "Camera → detection → OSC bridge for interactive 3D lighting in Unreal Engine"
-requires-python = ">=3.10"
+requires-python = ">=3.11,<3.12"
 dependencies = [
     "opencv-python>=4.8",
     "mediapipe>=0.10",
     "deepface>=0.0.90",
     "python-osc>=1.8",
     "pyyaml>=6.0",
-    "tf-keras>=2.20.1",
-]
-
-[project.optional-dependencies]
-realsense = [
-    "pyrealsense2>=2.54",
+    "tf-keras>=2.16,<2.20",
+    "protobuf>=4.25.3,<5",
 ]
 
 [project.scripts]
@@ -36,3 +32,9 @@ include = [
 
 [tool.hatch.build.targets.editable]
 sources = ["."]
+
+[tool.uv.sources]
+mediapipe = { path = "/home/sono/mediapipe/dist/mediapipe-0.10.14-cp311-cp311-linux_aarch64.whl" }
+
+[tool.uv]
+environments = ["sys_platform == 'linux' and platform_machine == 'aarch64'"]

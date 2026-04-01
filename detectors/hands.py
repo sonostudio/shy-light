@@ -53,7 +53,7 @@ class HandCoordinateDetector(Detector):
         )
 
     def detect(self, frame: np.ndarray) -> dict:
-        rgb = frame[:, :, ::-1]
+        rgb = frame[:, :, ::-1].copy()
         mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb)
         result = self._landmarker.detect(mp_image)
 

@@ -50,7 +50,7 @@ class ProximityDetector(Detector):
         h, w = frame.shape[:2]
         frame_area = h * w
 
-        rgb = frame[:, :, ::-1]  # BGR → RGB
+        rgb = frame[:, :, ::-1].copy()  # BGR → RGB
         mp_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=rgb)
         results = self._detector.detect(mp_image)
 
